@@ -18,3 +18,6 @@
 > 6 – read and write
 
 > 7 – read, write, and execute
+
+### file first line - #!/bin/bash
+### executable - chmod u+x
