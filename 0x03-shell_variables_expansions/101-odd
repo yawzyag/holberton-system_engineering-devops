@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -n ""|grep [12468] | cut -d: -f2
+grep -n ""|grep [12468] | cut -d: -f2 |sort -n
