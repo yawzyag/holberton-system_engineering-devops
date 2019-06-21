@@ -8,7 +8,7 @@ while [ $h -le 12 ]
 do
     echo "$m"
     m=$(( m+1 ))	 # increments $m
-	if [ $m -eq 59 ]
+	if [ $m -gt 59 ]
     then
 	    h=$(( h+1 ))	 # increments $h
 	    if [ $h -le 12 ]
