@@ -3,11 +3,10 @@
 n=1
 while [ $n -le 10 ]
 do
-    if [ $n -ne 9 ]
+    echo "Holberton School"
+    if [ $n -eq 9 ]
     then
-	    echo "Holberton School"
-    else
-        echo "Hi"
+	    echo "Hi"
     fi
 	n=$(( n+1 ))	 # increments $n
 done
