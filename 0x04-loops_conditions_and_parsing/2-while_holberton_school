@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# continue until $n equals 10
+# coment looop
 n=1
 
 while [ $n -le 10 ]
