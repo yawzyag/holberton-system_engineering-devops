@@ -2,7 +2,6 @@
 # continue until $n equals 10
 h=0
 m=1
-
 echo "Hour: $h"
 while [ $h -le 12 ]
 do
