@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # holi this is a file for display the PID 
 # shellcheck disable=SC2009
-ps -auf | grep "$USER"
+ps -auf | grep -e bash
