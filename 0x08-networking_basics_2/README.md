@@ -1,6 +1,6 @@
 # Networking basics
 
-![make file](https://blackhillsinfosec.com/wp-content/uploads/legacy/hx8MlVz9MTRg1NfsIfsi7lv7I3yNsKY1xbY8NYOuIl3pKcUB5B4AAsNIXQtXpVGxfIVcJ2YocHpNV_0zwsE1mRmUB00bDriFZSggec3SQY_mrunN_UArmxtOkcKrD9WdJeWo8Mhv)
+![make file](http://1.bp.blogspot.com/_VewU2nv9xds/TTvfFkRAFFI/AAAAAAAAAGc/pbdqNjcNKXg/s1600/NetworkDiagramCiscoIcons-723439.gif)
 reference(https://commotionwireless.net/docs/cck/networking/learn-networking-basics/)
 
 This document covers the basics of how networking works, and how to use different devices to build networks. Computer networking has existed for many years, and as time has passed the technologies have become faster and less expensive. Networks are made up of various devices—computers, switches, routers—connected together by cables or wireless signals. Understanding the basics of how networks are put together is an important step in building a wireless network in a community or neighborhood.}
