@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# holi this is a file for display the PID 
+pkill -f "7-highlander"

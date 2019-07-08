@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# holi this is a file for display the PID
+function sigquit_c {
+    rm /var/run/holbertonscript.pid
+    exit $?
+}
+function term_c {
+    echo "I hate the kill command"
+    rm /var/run/holbertonscript.pid
+    exit $?
+}
+function control_c {
+    echo "Y U no love me?!"
+} 
+trap control_c SIGINT
+trap term_c SIGTERM
+trap sigquit_c SIGQUIT
+
+echo $$ > /var/run/holbertonscript.pid
+while ((1))
+do
+    echo "To infinity and beyond"
+    sleep 2
+done

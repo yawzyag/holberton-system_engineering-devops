@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# continue until $n equals 10
+h=0
+m=1
+echo "Hour: $h"
+while [ $h -le 12 ]
+do
+    echo "$m"
+    m=$(( m+1 ))	 # increments $m
+	if [ $m -gt 59 ]
+    then
+	    h=$(( h+1 ))	 # increments $h
+	    if [ $h -le 12 ]
+        then
+            m=1
+            echo "Hour: $h"
+        else
+            m=1
+        fi
+    fi
+done

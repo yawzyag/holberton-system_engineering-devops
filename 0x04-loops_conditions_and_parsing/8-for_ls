@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# continue until $n equals 10
+LS=$(ls)
+for i in $LS
+do
+    echo "$i" | cut -d- -f2
+done

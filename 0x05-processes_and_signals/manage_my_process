@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# holi this is a file for display the PID
+
+while ((1))
+do
+    echo "I am alive!" >> /tmp/my_process
+    sleep 2
+done
