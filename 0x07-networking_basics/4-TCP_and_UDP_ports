@@ -1,1 +1,2 @@
-netstat -lnptu | netstat -l -p
+#!/usr/bin/env bash
+netstat -lp
