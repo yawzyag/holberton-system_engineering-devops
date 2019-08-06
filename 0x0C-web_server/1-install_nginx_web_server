@@ -3,5 +3,5 @@
 sudo apt-get update
 sudo apt-get install nginx -y
 sudo systemctl start nginx
-echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
+echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
 sudo systemctl restart nginx
