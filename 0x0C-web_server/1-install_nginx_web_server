@@ -2,7 +2,6 @@
 #dding the file to listen to the port
 sudo apt-get update
 sudo apt-get install nginx -y
-sudo ufw allow 'Nginx HTTP'
 sudo systemctl start nginx
 echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
 sudo systemctl restart nginx
