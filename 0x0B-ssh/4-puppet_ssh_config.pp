@@ -6,11 +6,11 @@ file_line { 'Turn off passwd auth':
   ensure => present,
   path   => '/etc/ssh/ssh_config',
   line   => 'PasswordAuthentication no',
-  match  => '^PasswordAuthentication',
+  match  => 'PasswordAuthentication',
 }->
 file_line { 'Declare identity file':
   ensure => present,
   path   => '/etc/ssh/ssh_config',
-  line   => 'IdentifyFile ~/.ssh/holberton',
-  match  => '^IdentifyFile',
+  line   => 'IdentityFile ~/.ssh/holberton',
+  match  => 'IdentityFile',
 }
