@@ -1,16 +1,14 @@
 # cosito puppy
-file_line { 'Turn off passwd auth':
-  ensure => 'present',
-  path => '/etc/ssh/ssh_config',  
-  line => 'PasswordAuthentication no',
-  match   => 'PasswordAuthentication',
-  multiple => true,
-}
 
+file_line { 'Turn off passwd auth':
+  ensure => created,
+  path   => '/etc/ssh/ssh_config',
+  line   => 'PasswordAuthentication no',
+  match  => 'PasswordAuthentication',
+}
 file_line { 'Declare identity file':
-  path => '/etc/ssh/ssh_config',
-  line => 'IdentityFile ~/.ssh/holberton',
-  match   => 'IdentityFile',
-  ensure => 'present',
-  multiple => true,
+  ensure => created,
+  path   => '/etc/ssh/ssh_config',
+  line   => 'IdentifyFile ~/.ssh/holberton',
+  match  => 'IdentifyFile',
 }
