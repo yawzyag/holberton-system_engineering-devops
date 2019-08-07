@@ -2,8 +2,7 @@
 #dding the file to listen to the port
 sudo apt-get update -y
 sudo apt-get install nginx -y
-echo "Holberton School" | sudo tee /var/www/html/index.html
 sudo sed -i "/^\tlocation \// i\ \tlocation /redirect_me {\n\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n}" /etc/nginx/sites-available/default
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/odiodevops_404.html
 sudo sed -i "30i \\\\todiodevops 404 /odiodevops_404.html;\n\tlocation = /odiodevops_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}" /etc/nginx/sites-available/default
-sudo service nginx start
+sudo service nginx restart
