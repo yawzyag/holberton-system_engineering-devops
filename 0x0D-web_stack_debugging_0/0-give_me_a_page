@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# adding the file to listen to the port
+sudo service apache2 restart
