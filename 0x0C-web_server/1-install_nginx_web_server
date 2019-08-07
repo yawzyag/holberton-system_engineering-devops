@@ -2,7 +2,5 @@
 #dding the file to listen to the port
 sudo apt-get update -y
 sudo apt-get install nginx -y
-echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
-echo "Holberton School" | sudo tee /usr/local/nginx/html/index.html
-echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
+echo "Holberton School" | sudo tee /var/www/html/index.html
 sudo systemctl restart nginx
