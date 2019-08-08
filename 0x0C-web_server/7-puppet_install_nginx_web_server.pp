@@ -2,13 +2,12 @@
 package {'nginx':
 ensure => 'present',
 }
-file { '/tmp/holberton':
+-> file { '/tmp/holberton':
 ensure        => 'present',
       path    => '/var/www/html/index.html',
       content => 'Holberton School',
 }
-
-file { '/etc/nginx/sites-available/default':
+-> file { '/etc/nginx/sites-available/default':
       ensure => present,
 }
 -> file_line { 'Edit redirect':
