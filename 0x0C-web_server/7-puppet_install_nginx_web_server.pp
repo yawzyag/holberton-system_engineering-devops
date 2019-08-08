@@ -25,3 +25,6 @@ service { 'nginx':
   ensure => running,
   enable => true,
 }
+exec { 'restart':
+      command => '/usr/sbin/service nginx restart',
+}
