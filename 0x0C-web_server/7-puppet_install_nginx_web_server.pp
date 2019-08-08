@@ -1,6 +1,6 @@
 # soy un comentario cool
 package {'nginx':
-ensure => '1.10.3-0ubuntu0.16.04.3',
+ensure => 'present',
 }
 file { '/tmp/holberton':
 ensure        => 'present',
@@ -14,11 +14,11 @@ file { '/etc/nginx/sites-available/default':
 -> file_line { 'Edit redirect':
   ensure => present,
   path   => '/etc/nginx/sites-available/default',
-  line   => '    listen 80 default_server;
+  line   => 'server {
          location /redirect_me {
                   return 301  https://www.youtube.com/watch?v=QH2-TGUlwu4;
           }',
-  match  => '^listen 80 default_server',
+  match  => '^server {',
 }
 -> exec { 'restart':
       command => '/usr/sbin/service nginx restart',
