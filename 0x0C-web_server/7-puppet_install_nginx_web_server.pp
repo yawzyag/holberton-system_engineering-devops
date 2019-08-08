@@ -20,7 +20,7 @@ file { '/etc/nginx/sites-available/default':
           }',
   match  => '^listen 80 default_server',
 }
-exec { 'restart':
+-> exec { 'restart':
       command => '/usr/sbin/service nginx restart',
 }
 service { 'nginx':
