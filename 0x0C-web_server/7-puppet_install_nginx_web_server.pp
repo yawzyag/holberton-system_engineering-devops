@@ -18,7 +18,7 @@ file { '/etc/nginx/sites-available/default':
          location /redirect_me {
                   return 301  https://www.youtube.com/watch?v=QH2-TGUlwu4;
           }',
-  match  => '^listen 80 default_server',
+  match  => 'listen 80 default_server',
 }
 -> exec { 'restart':
       command => '/usr/sbin/service nginx restart',
