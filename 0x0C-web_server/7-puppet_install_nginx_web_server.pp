@@ -1,6 +1,6 @@
 # soy un comentario cool
 package {'nginx':
-ensure => '1.10.3-0ubuntu0.16.04.3',
+ensure => 'installed',
 }
 file { '/tmp/holberton':
 ensure        => 'present',
