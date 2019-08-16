@@ -2,7 +2,7 @@
 #dding the file to listen to the port
 sudo apt-get update -y
 sudo apt install haproxy=1.5.\* -y
-text1="frontend haproxynode\n\tbind *:80\n\tmode http\n\tdefault_backend nodes"
+text1="frontend 766-lb-01\n\tbind *:80\n\tmode http\n\tdefault_backend nodes"
 text2="backend nodes\n\tmode http\n\tbalance roundrobin\n\toption forwardfor\n\thttp-request set-header X-Forwarded-Port %[dst_port]\n\thttp-request add-header X-Forwarded-Proto https if { ssl_fc }\n\toption httpchk HEAD / HTTP/1.1rnHost:localhost\n\tserver 766-web-01  35.231.255.39:80\n\tserver 766-web-02  35.196.178.86:80"
 sudo sed -i "35i \\\n$text1" /etc/haproxy/haproxy.cfg
 sudo sed -i "41i \\$text2" /etc/haproxy/haproxy.cfg
