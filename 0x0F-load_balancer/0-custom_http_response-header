@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#dding the file to listen to the port
+sudo apt-get update -y
+sudo apt-get install nginx -y
+text1=$HOSTNAME
+text2="\n\tadd_header X-Served-By $text1;"
+sudo sed -i "55i \\$text2" /etc/nginx/sites-available/default
+sudo service nginx restart
