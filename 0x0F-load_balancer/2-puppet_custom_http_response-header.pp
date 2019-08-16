@@ -8,8 +8,8 @@ ensure => 'installed',
 -> file_line { 'Edit redirect':
             ensure  => present,
             path    => '/etc/nginx/sites-available/default',
-              line  => '       location / {
-	      	   add_header X-Served-By 766-web-02;',
+              line  => "       location / {
+	      	   add_header X-Served-By \"${hostname}\";",
               match => '^\tlocation / {',
 }
 -> exec { 'restart':
