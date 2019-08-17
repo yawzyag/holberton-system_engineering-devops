@@ -2,4 +2,4 @@
 #dding the file to listen to the port
 sudo -i -e 's:8080:80:g' /etc/nginx/sites-enabled/default
 sudo service nginx start
-kill -9 "$(pgrep 'nginx' | head -1)"
+pkill -o nginx
