@@ -9,22 +9,22 @@ var4="web-02.${1}"
 
 func1 () {
     if [ $# -eq 1 ]; then
-        dig "$var1" | grep -A1 'ANSWER SECTION:' | awk 'NR==2,NR==2{print "The subdomain www", "is a", "$4", "record and points to", "$5"}'
-        dig "$var2" | grep -A1 'ANSWER SECTION:' | awk 'NR==2,NR==2{print "The subdomain lb-01", "is a", "$4", "record and points to", "$5"}'
-        dig "$var3" | grep -A1 'ANSWER SECTION:' | awk 'NR==2,NR==2{print "The subdomain web-01", "is a", "$4", "record and points to", "$5"}'
-        dig "$var4" | grep -A1 'ANSWER SECTION:' | awk 'NR==2,NR==2{print "The subdomain web-02", "is a", "$4", "record and points to", "$5"}'
+        dig $var1 | grep -A1 'ANSWER SECTION:' | awk 'NR==2,NR==2{print "The subdomain www", "is a", $4, "record and points to", $5}'
+        dig $var2 | grep -A1 'ANSWER SECTION:' | awk 'NR==2,NR==2{print "The subdomain lb-01", "is a", $4, "record and points to", $5}'
+        dig $var3 | grep -A1 'ANSWER SECTION:' | awk 'NR==2,NR==2{print "The subdomain web-01", "is a", $4, "record and points to", $5}'
+        dig $var4 | grep -A1 'ANSWER SECTION:' | awk 'NR==2,NR==2{print "The subdomain web-02", "is a", $4, "record and points to", $5}'
     else
-        dig "${actual}.${page}" | grep -A1 'ANSWER SECTION:' | awk -v var="$actual" 'NR==2 {print "The subdomain", "var", "is a", "$4", "record and points to", "$5"}'
+        dig "${actual}.${page}" | grep -A1 'ANSWER SECTION:' | awk -v var=$actual 'NR==2 {print "The subdomain", var, "is a", $4, "record and points to", $5}'
     fi
 }
 
 
 if [ $# -eq 2 ]; then
-    actual="$2"
-    page="$1"
-    func1 "$page" "$actual"
+    actual=$2
+    page=$1
+    func1 $page $actual
 else
-    page="$1"
-    func1 "$page"
+    page=$1
+    func1 $page
 fi
 
