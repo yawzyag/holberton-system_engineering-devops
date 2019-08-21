@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # this is a comment
+# shellcheck disable=SC2086
 
 var1="www.${1}"
 var2="lb-01.${1}"
