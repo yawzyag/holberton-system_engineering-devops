@@ -23,7 +23,7 @@ if [ $# -eq 2 ]; then
     actual="$2"
     page="$1"
     func1 "$page" "$actual"
-elif [ $# -eq 1 ]; then
+else
     page="$1"
     func1 "$page"
 fi
