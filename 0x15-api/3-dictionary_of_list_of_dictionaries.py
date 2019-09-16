@@ -7,23 +7,24 @@ from sys import argv
 
 if __name__ == "__main__":
     """exectute all req to json"""
-
     todo_url = "https://jsonplaceholder.typicode.com/todos"
-    users_url = "https://jsonplaceholder.typicode.com/users"
-    todos = r.get(todo_url).json()
+    users_url = "https://jsonplaceholder.typicode.com/users/"
     users = r.get(users_url).json()
-    response = {}
+    todos = r.get(todo_url).json()
+
+    response, user_todo, temp = {}, {}, {}
+
     for user in users:
-        user_todo = []
+        response[user.get("id")] = []
+        user_todo[user.get("id")] = user.get("username")
+
+    for todo in todos:
+        temp["username"] = user_todo.get(todo.get("userId"))
+        temp["task"] = todo.get("title")
+        temp["completed"] = todo.get("completed")
+        response.get(todo.get("userId")).append(temp)
         temp = {}
-        for todo in todos:
-            if todo.get("userId") == user.get("id"):
-                temp.update({"task": todo.get("title")})
-                temp.update({"completed": todo.get("completed")})
-                temp.update({"username": user.get("username")})
-                user_todo.append(temp)
-                temp = {}
-        response.update({user.get("id"): user_todo})
-    all_todos = "todo_all_employees.json"
-    with open(all_todos, mode='w') as json_f:
-        json.dump(response, json_f)
+
+        name_json = "todo_all_employees.json"
+        with open(name_json, 'w') as j_file:
+            json.dump(response, j_file)
