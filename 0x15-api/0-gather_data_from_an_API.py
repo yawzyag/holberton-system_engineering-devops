@@ -13,7 +13,7 @@ if __name__ == "__main__":
     for x in todos.json():
         if x.get("userId") == int(argv[1]):
             total += 1
-            if x.get("completed") == True:
+            if x.get("completed") is True:
                 done += 1
                 tasks.append(x.get("title"))
     for y in users.json():

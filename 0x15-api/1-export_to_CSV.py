@@ -6,7 +6,7 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    """exectute req"""
+    """exectute req to csv"""
     todo_url = "https://jsonplaceholder.typicode.com/todos"
     users_url = "https://jsonplaceholder.typicode.com/users"
     todos = r.get(todo_url)
@@ -15,7 +15,7 @@ if __name__ == "__main__":
     for x in todos.json():
         if x.get("userId") == int(argv[1]):
             total += 1
-            if x.get("completed") == True:
+            if x.get("completed") is True:
                 done += 1
             tasks.append(x.get("title"))
             compl.append(x.get("completed"))
@@ -37,7 +37,8 @@ if __name__ == "__main__":
     csv.register_dialect('myDialect',
                          quoting=csv.QUOTE_ALL,
                          skipinitialspace=True)
-    with open('employee_file.csv', mode='w') as employee_file:
+    name = "{}.csv".format(argv[1])
+    with open(name, mode='w') as employee_file:
         task_writer = csv.writer(employee_file, dialect='myDialect')
         for info in to_csv:
             task_writer.writerow(info)
