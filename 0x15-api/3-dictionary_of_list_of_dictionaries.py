@@ -12,19 +12,21 @@ if __name__ == "__main__":
     users = r.get(users_url).json()
     todos = r.get(todo_url).json()
 
-    response, user_todo, temp = {}, {}, {}
+    response, user_todo, temp, user_id = {}, {}, {}, {}
 
     for user in users:
         response[user.get("id")] = []
         user_todo[user.get("id")] = user.get("username")
+        user_id[user.get("id")] = user.get("id")
 
     for todo in todos:
-        temp["username"] = user_todo.get(todo.get("userId"))
-        temp["task"] = todo.get("title")
-        temp["completed"] = todo.get("completed")
+        if todo.get("userId") == user_id.get(todo.get("userId")):
+            temp["username"] = user_todo.get(todo.get("userId"))
+            temp["task"] = todo.get("title")
+            temp["completed"] = todo.get("completed")
         response.get(todo.get("userId")).append(temp)
         temp = {}
 
-        name_json = "todo_all_employees.json"
+    name_json = "todo_all_employees.json"
     with open(name_json, 'w') as j_file:
         json.dump(response, j_file)
