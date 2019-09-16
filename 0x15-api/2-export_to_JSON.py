@@ -30,4 +30,3 @@ if __name__ == "__main__":
     name = "{}.json".format(user_id)
     with open(name, mode='w') as json_f:
         json.dump(response, json_f)
-
