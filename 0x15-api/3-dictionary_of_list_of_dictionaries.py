@@ -6,7 +6,7 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    """exectute req to json"""
+    """exectute all req to json"""
 
     todo_url = "https://jsonplaceholder.typicode.com/todos"
     users_url = "https://jsonplaceholder.typicode.com/users"
@@ -26,7 +26,6 @@ if __name__ == "__main__":
                 user_todo.append(temp)
                 temp = {}
         response.update({user.get("id"): user_todo})
-    name = "todo_all_employees.json"
-    with open(name, mode='w') as json_f:
+    all_todos = "todo_all_employees.json"
+    with open(all_todos, mode='w') as json_f:
         json.dump(response, json_f)
-
