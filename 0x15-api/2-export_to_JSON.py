@@ -6,7 +6,7 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    """exectute req to csv"""
+    """exectute req to json"""
 
     todo_url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(
         int(argv[1]))
@@ -28,5 +28,5 @@ if __name__ == "__main__":
 
     response = {user_id: user_todo}
     name = "{}.json".format(user_id)
-    with open(name, mode='w') as file:
-        json.dump(response, file)
+    with open(name, mode='w') as json_f:
+        json.dump(response, json_f)
