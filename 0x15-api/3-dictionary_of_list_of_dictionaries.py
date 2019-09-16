@@ -26,5 +26,5 @@ if __name__ == "__main__":
         temp = {}
 
         name_json = "todo_all_employees.json"
-        with open(name_json, 'w') as j_file:
-            json.dump(response, j_file)
+    with open(name_json, 'w') as j_file:
+        json.dump(response, j_file)
