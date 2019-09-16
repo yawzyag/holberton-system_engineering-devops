@@ -4,6 +4,7 @@ import requests as r
 from sys import argv
 
 if __name__ == "__main__":
+    """exectute req"""
     todo_url = "https://jsonplaceholder.typicode.com/todos"
     users_url = "https://jsonplaceholder.typicode.com/users"
     todos = r.get(todo_url)
