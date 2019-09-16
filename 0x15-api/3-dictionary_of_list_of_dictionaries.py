@@ -21,9 +21,9 @@ if __name__ == "__main__":
 
     for todo in todos:
         if todo.get("userId") == user_id.get(todo.get("userId")):
-            temp["username"] = user_todo.get(todo.get("userId"))
-            temp["task"] = todo.get("title")
-            temp["completed"] = todo.get("completed")
+            temp.update({"username": user_todo.get(todo.get("userId"))})
+            temp.update({"task": todo.get("title")})
+            temp.update({"completed": todo.get("completed")})
         response.get(todo.get("userId")).append(temp)
         temp = {}
 
