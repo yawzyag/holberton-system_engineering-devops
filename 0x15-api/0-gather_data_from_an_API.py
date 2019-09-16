@@ -22,5 +22,6 @@ if __name__ == "__main__":
 
     print("Employee {} is done with tasks({}/{}):"
           .format(user, done, total))
+
     for task in tasks:
         print("\t {}".format(task))
