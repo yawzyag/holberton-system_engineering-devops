@@ -2,7 +2,6 @@
 """getting info from an api"""
 import json
 import requests as r
-from sys import argv
 
 
 if __name__ == "__main__":
