@@ -13,13 +13,11 @@ if __name__ == "__main__":
     todos = r.get(todo_url).json()
     users = r.get(users_url).json()
     response = {}
-    count = 0
     for user in users:
         user_todo = []
         temp = {}
         for todo in todos:
             if todo.get("userId") == user.get("id"):
-                count += 1
                 temp.update({"task": todo.get("title")})
                 temp.update({"completed": todo.get("completed")})
                 temp.update({"username": user.get("username")})
