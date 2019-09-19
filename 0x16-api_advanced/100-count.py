@@ -6,7 +6,6 @@ import requests as r
 def count_words(subreddit, word_list, lista=[], dicty={}, after="null"):
     """Get number of subscribers"""
 
-    word_list = list(set(word_list))
     if lista == [] or after is not None:
         url = "https://www.reddit.com/r/{}.json?sort=hot&after={}&limit=100"\
             .format(subreddit, after)
@@ -23,7 +22,8 @@ def count_words(subreddit, word_list, lista=[], dicty={}, after="null"):
             return None
     if after is None:
         count = 0
-        if len(word_list) > 0 and lista:
+        word_list = list(set(word_list))
+        if word_list != [] and lista:
             for item in lista:
                 if word_list[0].lower() in item.lower().split():
                     if word_list[0] in dicty.keys():
@@ -33,6 +33,5 @@ def count_words(subreddit, word_list, lista=[], dicty={}, after="null"):
             word_list.pop(0)
             count_words(subreddit, word_list, lista, dicty, after)
         else:
-            for key in sorted(dicty.items(),
-                              key=lambda t: t[::-1], reverse=True):
+            for key in sorted(dicty.items(), key=lambda kv: (-kv[1], kv[0])):
                 print("{}: {}".format(key[0], key[1]))
