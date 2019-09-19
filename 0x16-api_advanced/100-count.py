@@ -28,12 +28,14 @@ def count_words(subreddit, word_list, lista=[], dicty={}):
         lista = recurse(subreddit)
     count = 0
     if len(word_list) > 0 and lista:
+        if word_list[0] in dicty.keys():
+            dicty[word_list[0]] = 0
         for item in lista:
             if word_list[0].lower() in item.lower().split():
                 if word_list[0] in dicty.keys():
                     count = dicty[word_list[0]]
                 count += 1
-                dicty.update({word_list[0]: count})
+                dicty[word_list[0]] = count
         word_list.pop(0)
         count_words(subreddit, word_list, lista, dicty)
     else:
