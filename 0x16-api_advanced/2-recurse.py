@@ -13,10 +13,8 @@ def recurse(subreddit, hot_list=[], after="null"):
                             allow_redirects=False).json()
         data = subscribers.get("data")
         after = subscribers.get("data").get("after")
+        hot_list += [story.get("data")['title'] for story in data['children']]
         if after is not None:
-            for story in data['children']:
-                storia = story.get("data")
-                hot_list += storia['title']
             recurse(subreddit, hot_list, after)
         return hot_list
     except:
