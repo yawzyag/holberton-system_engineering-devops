@@ -10,7 +10,7 @@ def recurse(subreddit, hot_list=[], after="null"):
     headers = {'User-Agent': 'Yesid'}
     try:
         subscribers = r.get(url, headers=headers,
-                             allow_redirects=False).json()
+                            allow_redirects=False).json()
         data = subscribers.get("data")
         after = subscribers.get("data").get("after")
         if after != None:
