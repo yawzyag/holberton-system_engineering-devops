@@ -13,7 +13,7 @@ def recurse(subreddit, hot_list=[], after="null"):
                             allow_redirects=False).json()
         data = subscribers.get("data")
         after = subscribers.get("data").get("after")
-        if after != None:
+        if after is not None:
             hot_list += data["children"]
             recurse(subreddit, hot_list, after)
         return hot_list
