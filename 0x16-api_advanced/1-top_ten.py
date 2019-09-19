@@ -4,11 +4,14 @@ import requests as r
 
 def top_ten(subreddit):
     """Get number of subscribers"""
-    url = "https://www.reddit.com/r/{}/top.json?limit=10".format(subreddit)
+    url = "https://www.reddit.com/r/{}.json?sort=hot&limit=10".format(
+        subreddit)
     headers = {'User-Agent': 'Yesid'}
-    subscribers = r.get(url, headers=headers).json()
     try:
-        for story in subscribers['data']['children']:
-            print(story['data']['title'])
+        subscribers = r.get(url, headers=headers, allow_redirects=False).json()
+        data = subscribers.get("data")
+        for story in data['children']:
+            storia = story.get("data")
+            print(storia['title'])
     except:
         print(None)
