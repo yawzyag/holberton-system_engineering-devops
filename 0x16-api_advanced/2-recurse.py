@@ -14,7 +14,9 @@ def recurse(subreddit, hot_list=[], after="null"):
         data = subscribers.get("data")
         after = subscribers.get("data").get("after")
         if after is not None:
-            hot_list += data["children"]
+            for story in data['children']:
+                storia = story.get("data")
+                hot_list.append(storia['title'])
             recurse(subreddit, hot_list, after)
         return hot_list
     except:
