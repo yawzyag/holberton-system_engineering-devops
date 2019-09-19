@@ -5,8 +5,8 @@ import requests as r
 
 def recurse(subreddit, hot_list=[], after="null"):
     """Get number of subscribers"""
-    url = "https://www.reddit.com/r/{}.json?sort=hot&after={}&limit=100".format(
-        subreddit, after)
+    url = "https://www.reddit.com/r/{}.json?sort=hot&after={}&limit=100"\
+          .format(subreddit, after)
     headers = {'User-Agent': 'Yesid'}
     try:
         subscribers = r.get(url, headers=headers,
