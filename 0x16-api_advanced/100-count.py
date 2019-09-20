@@ -11,7 +11,7 @@ def count_words(subreddit, word_list, lista=[], dicty={}, after="null"):
             .format(subreddit, after)
         headers = {'User-Agent': 'Yesid'}
         subscribers = r.get(url, headers=headers,
-                                allow_redirects=False).json()
+                            allow_redirects=False).json()
         data = subscribers.get("data")
         after = subscribers.get("data").get("after")
         lista += [story.get("data")['title'] for story in data['children']]
