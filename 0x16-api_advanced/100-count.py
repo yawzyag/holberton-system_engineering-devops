@@ -21,26 +21,25 @@ def recurse(subreddit, hot_list=[], after="null"):
         pass
 
 
-def count_words(subreddit, word_list, lista=None, dicty={},
-                count=0):
+def count_words(subreddit, word_list, lista=None, dicty={}):
     """Get number of subscribers"""
 
-    word_list = list(set(word_list))
+    if dicty == {}:
+        for word in word_list:
+            dicty.update({word: 0})
     if lista is None:
         lista = recurse(subreddit)
     if lista and len(lista) > 0:
         if word_list != []:
+            word_list = list(set(word_list))
             for item in lista:
                 item = item.lower()
                 if word_list[-1].lower() in item.split():
                     if word_list[-1] in dicty.keys():
-                        count = dicty[word_list[-1]]
-                    else:
-                        count = 0
-                    count += 1
-                    dicty.update({word_list[-1]: count})
+                        dicty[word_list[-1]] += 1
             word_list.pop(-1)
-            count_words(subreddit, word_list, lista, dicty, count)
+            count_words(subreddit, word_list, lista, dicty)
         else:
             for key in sorted(dicty.items(), key=lambda kv: (-kv[1], kv[0])):
-                print("{}: {}".format(key[0], key[1]))
+                if key[1] != 0:
+                    print("{}: {}".format(key[0], key[1]))
