@@ -10,20 +10,16 @@ def count_words(subreddit, word_list, lista=[], dicty={}, after="null"):
         url = "https://www.reddit.com/r/{}.json?sort=hot&after={}&limit=100"\
             .format(subreddit, after)
         headers = {'User-Agent': 'Yesid'}
-        try:
-            subscribers = r.get(url, headers=headers,
+        subscribers = r.get(url, headers=headers,
                                 allow_redirects=False).json()
-            data = subscribers.get("data")
-            after = subscribers.get("data").get("after")
-            lista += [story.get("data")['title'] for story in data['children']]
-            if after is not None:
-                count_words(subreddit, word_list, lista, dicty, after)
-        except:
-            pass
+        data = subscribers.get("data")
+        after = subscribers.get("data").get("after")
+        lista += [story.get("data")['title'] for story in data['children']]
+        if after is not None:
+            count_words(subreddit, word_list, lista, dicty, after)
     if after is None:
         count = 0
-        word_list = list(set(word_list))
-        if word_list != [] and lista:
+        if word_list != [] and lista != []:
             for item in lista:
                 if word_list[0].lower() in item.lower().split():
                     if word_list[0] in dicty.keys():
